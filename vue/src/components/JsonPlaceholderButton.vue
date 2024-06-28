@@ -34,11 +34,11 @@ import { ref } from "vue";
 // create a 'users' ref, which is an array of User objects
 const users = ref<User[]>([]);
 
-const handleAlertClick = () => {
+const showAlert = () => {
   alert("Woot");
 };
 
-const handleGetApiData = async () => {
+const getDataFromJsonPlaceholder = async () => {
   const response = await fetch("https://jsonplaceholder.typicode.com/users");
   const data: User[] = await response.json();
 
@@ -49,13 +49,13 @@ const handleGetApiData = async () => {
 <template>
   <section class="section">
     <h2>Buttons / Events</h2>
-    <button class="php-button" @click="handleAlertClick" type="button">Simple Alert</button>
+    <button class="php-button" @click="showAlert" type="button">Simple Alert</button>
 
     <br />
     <br />
     <br />
 
-    <button class="php-button" @click="handleGetApiData" type="button">
+    <button class="php-button" @click="getDataFromJsonPlaceholder" type="button">
       Get JSON Placeholder Data
     </button>
 

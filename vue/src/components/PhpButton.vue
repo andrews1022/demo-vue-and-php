@@ -7,7 +7,7 @@ type JsonResponse = {
 
 const stateData = ref<JsonResponse>({ message: "" });
 
-const phpButton = async () => {
+const getDataFromPhpServer = async () => {
   const response = await fetch("http://localhost:8000");
   const data: JsonResponse = await response.json();
 
@@ -17,7 +17,7 @@ const phpButton = async () => {
 
 <template>
   <section class="section">
-    <button @click="phpButton">PHP</button>
+    <button @click="getDataFromPhpServer">PHP</button>
 
     <!-- render the stateData if there is a value inside a pre tag -->
     <pre v-if="stateData.message">{{ stateData.message }}</pre>
